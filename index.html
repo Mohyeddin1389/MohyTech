@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MohyTech — طراحی و توسعه وبسایت حرفه‌ای</title>
+    <meta name="description" content="طراحی و توسعه وبسایت‌های سریع، مدرن و بهینه برای کسب‌وکار شما. سرویس‌های اختصاصی، نمونه‌کارهای حرفه‌ای، پشتیبانی و مشاوره رایگان.">
+    <meta name="keywords" content="طراحی سایت, توسعه وب, ریسپانسیو, UI/UX, سئو, وبسایت شرکتی, فروشگاهی">
+    <meta name="author" content="MohyTech">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.mohytech.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="MohyTech — طراحی و توسعه وبسایت حرفه‌ای">
+    <meta property="og:description" content="سرویس‌های اختصاصی، نمونه‌کارهای حرفه‌ای، پشتیبانی و مشاوره رایگان.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.mohytech.com/">
+    <meta property="og:image" content="public/Logo.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MohyTech — طراحی و توسعه وبسایت حرفه‌ای">
+    <meta name="twitter:description" content="سرویس‌های اختصاصی، نمونه‌کارهای حرفه‌ای، پشتیبانی و مشاوره رایگان.">
+    <meta name="twitter:image" content="public/ffadad.png">
+
+    <!-- Favicon -->
+    <link rel="icon" href="public/Logo_587x371.png" type="image/png">
+
+    <!-- Vazirmatn Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Vazirmatn", "ui-sans-serif", "system-ui"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "MohyTech",
+      "url": "https://www.mohytech.com/",
+      "logo": "https://www.mohytech.com/public/ffadad.png",
+      "sameAs": [
+        "https://www.instagram.com/",
+        "https://www.linkedin.com/",
+        "https://github.com/"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://www.mohytech.com/",
+      "name": "MohyTech",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.mohytech.com/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- Menu Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const menuBtn = document.getElementById("menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuPanel = document.getElementById("mobile-menu-panel");
+
+        if (!menuBtn || !mobileMenu || !menuPanel) return;
+
+        const openMenu = () => {
+          mobileMenu.classList.remove("pointer-events-none");
+          mobileMenu.classList.remove("opacity-0");
+          mobileMenu.classList.add("opacity-100");
+          menuPanel.classList.remove("max-h-0", "opacity-0", "-translate-y-2");
+          menuPanel.classList.add("max-h-96", "opacity-100", "translate-y-0");
+          menuBtn.setAttribute("aria-expanded", "true");
+        };
+
+        const closeMenu = () => {
+          mobileMenu.classList.add("pointer-events-none");
+          mobileMenu.classList.remove("opacity-100");
+          mobileMenu.classList.add("opacity-0");
+          menuPanel.classList.add("max-h-0", "opacity-0", "-translate-y-2");
+          menuPanel.classList.remove("max-h-96", "opacity-100", "translate-y-0");
+          menuBtn.setAttribute("aria-expanded", "false");
+        };
+
+        const isOpen = () => mobileMenu.classList.contains("opacity-100");
+
+        menuBtn.addEventListener("click", () => (isOpen() ? closeMenu() : openMenu()));
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && isOpen()) closeMenu();
+        });
+        mobileMenu.addEventListener("click", (e) => {
+          if (e.target === mobileMenu) closeMenu();
+        });
+        mobileMenu.querySelectorAll("a[href^='#']").forEach((a) => {
+          a.addEventListener("click", () => closeMenu());
+        });
+      });
+    </script>
+  </head>
+  <body class="font-sans text-gray-950 antialiased tracking-normal bg-gray-950">
+    <!-- Navbar -->
+<header class="sticky top-0 z-30 bg-gray-950 backdrop-blur">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+    <!-- Logo -->
+     <img src="public/Logo_587x371.png" alt="" class="w-10 h-10">
+    <a href="#" class="flex items-center text-gray-50 transition hover:scale-x-125 duration-200">MohyTech
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-6 text-sm text-gray-50">
+      <a class="hover:text-slate-50 transition hover:scale-x-125 duration-200" href="#services">سرویس‌ها</a>
+      <a class="hover:text-slate-50 transition hover:scale-x-125 duration-200" href="#portfolio">نمونه‌کار</a>
+      <a class="hover:text-slate-50 transition hover:scale-x-125 duration-200" href="#faq">FAQ</a>
+    </nav>
+
+    <!-- Desktop CTA -->
+    <a
+      href="#contact"
+      class="hidden md:inline-flex items-center rounded-xl px-4 py-2 text-sm font-semibold bg-slate-500 text-white hover:bg-slate-400 transition hover:scale-110 duration-300"
+    >
+      شروع گفتگو
+    </a>
+
+    <!-- Mobile Hamburger -->
+    <button
+      id="menu-btn"
+      class="md:hidden inline-flex items-center justify-center rounded-xl p-2 ring-1 ring-slate-100 hover:bg-slate-50 transition"
+      aria-label="Menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="sr-only">Open menu</span>
+      <span class="flex flex-col gap-1.5">
+        <span class="w-6 h-0.5 bg-slate-500"></span>
+        <span class="w-6 h-0.5 bg-slate-500"></span>
+        <span class="w-6 h-0.5 bg-slate-500"></span>
+      </span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Overlay (animated) -->
+  <div
+    id="mobile-menu"
+    class="md:hidden fixed inset-0 z-40 opacity-0 pointer-events-none transition-opacity duration-300"
+    aria-hidden="true"
+  >
+    <!-- backdrop -->
+    <div class="absolute inset-0 bg-slate-950/30"></div>
+
+    <!-- panel -->
+    <div class="relative mx-4 mt-4 rounded-3xl bg-white shadow-xl ring-1 ring-slate-100 overflow-hidden">
+      <div class="flex items-center justify-between px-4 py-4 border-b border-slate-100">
+        <span class="font-extrabold text-slate-950">منو</span>
+        <button
+          class="rounded-xl p-2 hover:bg-slate-50 transition"
+          aria-label="Close menu"
+          onclick="document.getElementById('menu-btn').click()"
+        >
+          <svg class="w-5 h-5 text-slate-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div
+        id="mobile-menu-panel"
+        class="max-h-0 opacity-0 -translate-y-2 transition-all duration-300 ease-out overflow-hidden"
+      >
+        <nav class="flex flex-col px-4 py-4 gap-2 text-sm text-slate-800">
+          <a
+            class="rounded-2xl px-4 py-3 hover:bg-slate-50 transition hover:scale-110 duration-300"
+            href="#services"
+          >سرویس‌ها</a>
+
+          <a
+            class="rounded-2xl px-4 py-3 hover:bg-slate-50 transition hover:scale-110 duration-300"
+            href="#portfolio"
+          >نمونه‌کار</a>
+
+          <a
+            class="rounded-2xl px-4 py-3 hover:bg-slate-50 transition hover:scale-110 duration-300"
+            href="#faq"
+          >FAQ</a>
+
+          <a
+            href="#contact"
+            class="mt-2 inline-flex justify-center rounded-2xl px-4 py-3 font-semibold bg-slate-500 text-white hover:bg-slate-400 transition hover:scale-110 duration-300"
+          >
+            شروع گفتگو
+          </a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+    <!-- Hero -->
+    <section class="bg-gray-950 h-[600px] via-gray-950 to-slate-50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-16 text-center mu-[200px]">
+        <span
+          class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm text-slate-800 shadow mu-[200px]"
+        >
+          <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+          طراحی وبسایت حرفه‌ای
+        </span>
+
+        <h1 class="mt-6 text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight">
+          اولین قدم برای رشد
+          <span class="bg-gradient-to-l from-slate-200 to-white bg-clip-text text-transparent">
+            کسب‌وکار شما
+          </span>
+        </h1>
+
+        <p class="mt-4 text-slate-100 leading-8 max-w-2xl mx-auto text-sm sm:text-base">
+          سرعت بالاتر، تجربه کاربری بهتر و نرخ تبدیل بیشتر برای رشد واقعی کسب‌وکار شما.
+        </p>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+          <a
+            href="#contact"
+            class="rounded-2xl px-6 py-3 font-semibold bg-slate-500 text-white hover:bg-slate-400 transition hover:scale-110 duration-300"
+          >
+            شروع گفتگو
+          </a>
+          <a
+            href="#portfolio"
+            class="rounded-2xl px-6 py-3 font-semibold bg-white text-slate-900 hover:bg-slate-50 transition hover:scale-110 duration-300"
+          >
+            مشاهده نمونه‌کارها
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- Portfolio -->
+<section id="portfolio" class="py-14 sm:py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-8 sm:mb-10">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-slate-950">
+        نمونه‌کارهای منتخب
+      </h2>
+      <p class="mt-3 text-slate-800 text-sm sm:text-base">
+        چند پروژه برای نمایش کیفیت طراحی و پیاده‌سازی
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Card 1 -->
+      <a
+        href="#"
+        class="group rounded-3xl border border-slate-100 bg-white p-5 shadow-sm hover:shadow-md transition"
+      >
+        <!-- قاب ثابت -->
+        <div class="rounded-2xl overflow-hidden ring-1 ring-slate-100 bg-slate-50">
+          <div class="aspect-[16/25] overflow-hidden">
+            <img
+              src="public/screencapture-127-0-0-1-5500-my-projectcd2-index-html-2026-01-01-21_46_55.png"
+              alt="پروژه اول"
+              class="w-full h-auto transform transition-transform duration-[3000ms] ease-out
+                     translate-y-0 group-hover:translate-y-[-1%]"
+            />
+          </div>
+        </div>
+
+        <h3 class="mt-4 font-extrabold text-slate-950 text-center">سالن ارایشی انی</h3>
+        <p class="text-sm text-slate-700 mt-2 text-center">
+        </p>
+      </a>
+
+      <!-- Card 2 -->
+      <a
+        href="#"
+        class="group rounded-3xl border border-slate-100 bg-white p-5 shadow-sm hover:shadow-md transition"
+      >
+        <div class="rounded-2xl overflow-hidden ring-1 ring-slate-100 bg-slate-50 ">
+          <div class="aspect-[16/25] overflow-hidden">
+            <img
+              src="public/screencapture-127-0-0-1-5500-my-projectcd4-index-html-2026-01-01-21_49_06.png"
+              alt="پروژه دوم"
+              class="w-full h-auto transform transition-transform duration-[3000ms] ease-out
+                     translate-y-0 group-hover:translate-y-[-40%]"
+            />
+          </div>
+        </div>
+
+        <h3 class="mt-4 font-extrabold text-slate-950 text-center">مبلمان آرا</h3>
+        <p class="text-sm text-slate-700 mt-2 text-center">
+        </p>
+      </a>
+      <!-- Card 3 (ساده مثل قبل) -->
+      <div
+        class="rounded-3xl border border-slate-100 p-6 text-center shadow-sm transition
+               hover:shadow-md"
+      >
+        <h3 class="font-bold">RMS</h3>
+        <p class="text-sm text-slate-700 mt-2">سیستم مدیریتی سازمانی</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="pricing" class="py-16 bg-slate-50 border-y border-slate-100">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+    <!-- Title -->
+    <div class="text-center mb-12">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-slate-950">
+        پلن‌های طراحی وبسایت
+      </h2>
+      <p class="mt-3 text-slate-700 text-sm sm:text-base">
+        متناسب با نیاز کسب‌وکار شما
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+
+      <!-- Economy -->
+       <div class="rounded-3xl bg-white p-8 shadow-md hover:scale-110 duration-300">
+        <h3 class="text-lg font-extrabold text-slate-950 mb-2">پکیج پایه اقتصادی</h3>
+        <p class="text-slate-700 text-sm mb-6">شروع حرفه‌ای</p>
+
+        <div class="text-4xl font-extrabold text-slate-950 mb-1">
+          7/900/000
+        </div>
+        <span class="text-sm text-slate-600">تومان</span>
+
+        <ul class="mt-6 space-y-3 text-sm text-slate-700">
+          <li>✔️ سایت شرکتی ساده</li>
+          <li>✔️ قالب ریسپانسیو</li>
+          <li>✔️ SSL رایگان</li>
+          <li>✔️ پنل مدیریت ساده</li>
+          <li>✔️ آموزش مدیریت سایت</li>
+          <li>✔️ پشتیبانی ۳ ماهه</li>
+        </ul>
+
+        <a
+          href="#contact"
+          class="mt-8 inline-flex justify-center w-full rounded-2xl bg-slate-500 text-white py-3 font-bold hover:bg-slate-400 transition"
+        >
+          مشاوره رایگان
+        </a>
+      </div>
+      <!-- Standard (Featured) -->
+      <div class="relative rounded-3xl bg-white p-8 shadow-xl ring-2 ring-slate-500 scale-[1.03] hover:scale-110 duration-300">
+        <span class="absolute -top-3 right-6 bg-slate-500 text-white text-xs px-3 py-1 rounded-full">
+          محبوب‌ترین
+        </span>
+
+        <h3 class="text-lg font-extrabold text-slate-950 mb-2">پکیج استاندارد</h3>
+        <p class="text-slate-700 text-sm mb-6">پرفروش</p>
+
+        <div class="text-4xl font-extrabold text-slate-950 mb-1">
+          25/900/000
+        </div>
+        <span class="text-sm text-slate-600">تومان</span>
+
+        <ul class="mt-6 space-y-3 text-sm text-slate-700">
+          <li>✔️  همه امکانات پکیج پایه</li>
+          <li>✔️  طراحی فروشگاه اینترنتی</li>
+          <li>✔️  100 محصول اول رایگان</li>
+          <li>✔️  تصال به درگاه پرداخت بانکی/واسط</li>
+          <li>✔️  امنیت پیشرفته (فایروال + بک‌آپ خودکار هفتگی)</li>
+          <li>✔️ پشتیبانی ۶ ماهه</li>
+          <li>✔️ طراحی گرافیکی اختصاصی برای صفحات مهم</li>
+        </ul>
+
+        <a
+          href="#contact"
+          class="mt-8 inline-flex justify-center w-full rounded-2xl bg-slate-500 text-white py-3 font-bold hover:bg-slate-400 transition"
+        >
+          مشاوره رایگان
+        </a>
+      </div>
+
+      <!-- Vip -->
+      <div class="rounded-3xl bg-slate-950 text-white p-8 shadow-lg hover:scale-110 duration-300">
+        <h3 class="text-lg font-extrabold mb-2">پکیج حرفه‌ای VIP</h3>
+        <p class="text-slate-200 text-sm mb-6">برندینگ کامل</p>
+
+        <div class="text-3xl font-extrabold mb-6">
+          تماس بگیرید
+        </div>
+
+        <ul class="space-y-3 text-sm text-slate-100">
+          <li>✔️ تمام امکانات پکیج استاندارد</li>
+          <li>✔️ طراحی اختصاصی UI/UX</li>
+          <li>✔️ سئو پیشرفته و حرفه‌ای</li>
+          <li>✔️ چندزبانه (مثلا فارسی–انگلیسی یا فارسی–ترکی)</li>
+          <li>✔️ سیستم‌های اتوماسیون (پیامکی + ایمیل مارکتینگ)</li>
+          <li>✔️ پشتیبانی VIP تا ۱ سال</li>
+          <li>✔️ مگامنو اختصاصی (منوی حرفه‌ای برای دسته‌بندی‌های زیاد)</li>
+          <li>✔️  سیستم رزرو آنلاین (برای خدمات، کلینیک‌ها یا مشاغل رزرواسیونی)</li>
+          <li>✔️  چت آنلاین حرفه‌ای + اتصال به واتساپ و اینستاگرام</li>
+          <li>✔️ بهینه‌سازی فوق پیشرفته سرعت (CDN + کش سرور)</li>
+          <li>✔️ آپدیت و توسعه رایگان تا ۱ سال</li>
+        </ul>
+
+        <a
+          href="#contact"
+          class="mt-8 inline-flex justify-center w-full rounded-2xl bg-white text-slate-950 py-3 font-bold hover:bg-slate-100 transition"
+        >
+          مشاوره رایگان
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose (matches your design) -->
+<section id="why" class="py-14 sm:py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- Title -->
+    <div class="text-center mb-10">
+      <div class="flex items-center justify-center gap-2 text-xs sm:text-sm text-slate-500">
+      </div>
+
+      <h2 class="mt-3 text-2xl md:text-3xl font-extrabold text-slate-950">
+        چرا <span class="text-slate-500">MohyTech</span> را انتخاب کنید؟
+      </h2>
+
+      <p class="mt-3 text-slate-700 text-sm sm:text-base max-w-2xl mx-auto leading-8">
+        چهار دلیل اصلی که باعث میشه خروجی نهایی، سریع‌تر، شکیل‌تر و آماده‌ی رشد کسب‌وکارتون باشه.
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <!-- Card 1 -->
+      <div class="group rounded-3xl border border-slate-100 bg-white p-6 shadow-sm hover:shadow-md transition">
+        <div class="mx-auto w-20 h-20 rounded-3xl bg-slate-50 ring-1 ring-slate-100 flex items-center justify-center">
+          <div class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center">
+            <!-- headset -->
+            <svg class="w-7 h-7 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 12a8 8 0 0 1 16 0" />
+              <path d="M4 12v4a2 2 0 0 0 2 2h1v-6H6a2 2 0 0 0-2 2Z" />
+              <path d="M20 12v4a2 2 0 0 1-2 2h-1v-6h1a2 2 0 0 1 2 2Z" />
+              <path d="M12 18h2" />
+            </svg>
+          </div>
+        </div>
+
+        <h3 class="mt-5 text-center font-extrabold text-slate-950">
+          پشتیبانی و آموزش
+        </h3>
+        <p class="mt-2 text-center text-sm text-slate-700 leading-7">
+          بعد از تحویل تنها نیستید؛ آموزش مدیریت و همراهی برای رفع ایراد و به‌روزرسانی‌ها.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="group rounded-3xl border border-slate-100 bg-white p-6 shadow-sm hover:shadow-md transition">
+        <div class="mx-auto w-20 h-20 rounded-3xl bg-slate-50 ring-1 ring-slate-100 flex items-center justify-center">
+          <div class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center">
+            <!-- rocket -->
+            <svg class="w-7 h-7 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 3c-3 1-6 4-7 7l-3 3 4 4 3-3c3-1 6-4 7-7V3Z" />
+              <path d="M10 14l-1 4 4-1" />
+              <path d="M8.5 8.5h.01" />
+            </svg>
+          </div>
+        </div>
+
+        <h3 class="mt-5 text-center font-extrabold text-slate-950">
+          سرعت و عملکرد عالی
+        </h3>
+        <p class="mt-2 text-center text-sm text-slate-700 leading-7">
+          لود سریع، تجربه کاربری روان و بهبود Core Web Vitals برای نتیجه‌گیری بهتر.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="group rounded-3xl border border-slate-100 bg-white p-6 shadow-sm hover:shadow-md transition">
+        <div class="mx-auto w-20 h-20 rounded-3xl bg-slate-50 ring-1 ring-slate-100 flex items-center justify-center">
+          <div class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center">
+            <!-- SEO crown -->
+            <svg class="w-7 h-7 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 7l4 5 4-6 4 6 4-5v10H4V7Z" />
+              <path d="M4 17h16" />
+            </svg>
+          </div>
+        </div>
+
+        <h3 class="mt-5 text-center font-extrabold text-slate-950">
+          سئو داخلی حرفه‌ای
+        </h3>
+        <p class="mt-2 text-center text-sm text-slate-700 leading-7">
+          ساختار تمیز، تگ‌های درست، سرعت بالا و آماده‌سازی اصولی برای دیده‌شدن در گوگل.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="group rounded-3xl border border-slate-100 bg-white p-6 shadow-sm hover:shadow-md transition">
+        <div class="mx-auto w-20 h-20 rounded-3xl bg-slate-50 ring-1 ring-slate-100 flex items-center justify-center">
+          <div class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center">
+            <!-- layout -->
+            <svg class="w-7 h-7 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 5h16v14H4V5Z" />
+              <path d="M8 9h8" />
+              <path d="M8 13h6" />
+              <path d="M7 5v14" />
+            </svg>
+          </div>
+        </div>
+
+        <h3 class="mt-5 text-center font-extrabold text-slate-950">
+          طراحی اختصاصی
+        </h3>
+        <p class="mt-2 text-center text-sm text-slate-700 leading-7">
+          متناسب با برند شما؛ مدرن، مینیمال، ریسپانسیو و قابل توسعه برای آینده.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+    <!-- Services -->
+    <div class="flex justify-center">
+  <img
+    src="public/Logo.png"
+    alt="Logo"
+    class="bg-gray-950"
+  >
+</div>
+    <!-- FAQ -->
+    <section id="faq" class="py-14 sm:py-16 bg-slate-50 border-y border-slate-100">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <!-- Title (fixed responsive alignment) -->
+        <div class="flex items-center justify-between gap-4">
+          <h2 class="text-2xl md:text-3xl font-extrabold text-slate-950">
+            سوالات متداول شما
+          </h2>
+
+          <span class="inline-flex items-center gap-2 shrink-0">
+            <span class="h-2 w-2 rounded-full bg-slate-600"></span>
+            <span class="h-2 w-2 rounded-full bg-slate-500"></span>
+            <span class="h-2 w-2 rounded-full bg-slate-300"></span>
+          </span>
+        </div>
+
+        <div class="mt-8 sm:mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Right column -->
+          <div class="rounded-3xl border border-slate-100 overflow-hidden bg-white shadow-sm">
+            <div class="bg-slate-50/70 px-5 py-4 border-b border-slate-100">
+              <h3 class="text-slate-900 font-extrabold">طراحی سایت چقدر زمان می‌بره؟</h3>
+            </div>
+            <div class="px-5 py-5 text-slate-700 leading-8 text-sm sm:text-base border-b border-slate-100">
+              بسته به نوع سایت، بین ۲ تا ۷ هفته طول می‌کشه.
+            </div>
+
+            <div class="bg-slate-50/70 px-5 py-4 border-b border-slate-100">
+              <h3 class="text-slate-900 font-extrabold">پشتیبانی شامل چه چیزهایی میشه؟</h3>
+            </div>
+            <div class="px-5 py-5 text-slate-700 leading-8 text-sm sm:text-base border-b border-slate-100">
+              رفع مشکلات فنی، به‌روزرسانی‌ها و پاسخ سریع به سوالات.
+            </div>
+
+            <div class="bg-slate-50/70 px-5 py-4 border-b border-slate-100">
+              <h3 class="text-slate-900 font-extrabold">بعد از تحویل سایت اگه مشکلی پیش بیاد چی؟</h3>
+            </div>
+            <div class="px-5 py-5 text-slate-700 leading-8 text-sm sm:text-base border-b border-slate-100">
+              ما خدمات پشتیبانی ارائه می‌دیم. یعنی هرگونه مشکل فنی یا سوالی داشتین، همراه شما هستیم.
+              بسته به نوع قرارداد، پشتیبانی می‌تونه ۶ ماهه، ۱ ساله یا حتی بلندمدت باشه.
+            </div>
+
+            <div class="bg-slate-50/70 px-5 py-4 border-b border-slate-100">
+              <h3 class="text-slate-900 font-extrabold">آیا میشه سایت رو چندزبانه طراحی کرد؟</h3>
+            </div>
+            <div class="px-5 py-5 text-slate-700 leading-8 text-sm sm:text-base">
+              بله. اگر نیاز به وبسایت چندزبانه داشته باشید (مثلاً فارسی–انگلیسی یا ترکی–عربی)، این امکان رو فراهم می‌کنیم.
+            </div>
+          </div>
+
+          <!-- Left column -->
+          <div class="rounded-3xl border border-slate-100 overflow-hidden bg-white shadow-sm">
+            <div class="bg-slate-50/70 px-5 py-4 border-b border-slate-100">
+              <h3 class="text-slate-900 font-extrabold">آیا می‌تونم بعد از تحویل خودم تغییرات بدم؟</h3>
+            </div>
+            <div class="px-5 py-5 text-slate-700 leading-8 text-sm sm:text-base border-b border-slate-100">
+              بله! ما آموزش کامل مدیریت سایت رو بهتون می‌دیم.
+            </div>
+
+            <div class="bg-slate-50/70 px-5 py-4 border-b border-slate-100">
+              <h3 class="text-slate-900 font-extrabold">آیا سایت روی موبایل و تبلت هم درست نمایش داده میشه؟</h3>
+            </div>
+            <div class="px-5 py-5 text-slate-700 leading-8 text-sm sm:text-base border-b border-slate-100">
+              بله. تمام وبسایت‌ها به صورت ریسپانسیو (واکنش‌گرا) طراحی میشن و روی موبایل، تبلت و دسکتاپ هماهنگ و زیبا نمایش داده میشن.
+            </div>
+
+            <div class="bg-slate-50/70 px-5 py-4 border-b border-slate-100">
+              <h3 class="text-slate-900 font-extrabold">آیا سایت من امکان ارتقا در آینده رو داره؟</h3>
+            </div>
+            <div class="px-5 py-5 text-slate-700 leading-8 text-sm sm:text-base border-b border-slate-100">
+              بله. سایت‌ها رو طوری طراحی می‌کنیم که در آینده بتونید امکانات جدید (مثل فروشگاه آنلاین، وبلاگ، درگاه پرداخت، سیستم عضویت و …) اضافه کنید.
+            </div>
+
+            <div class="bg-slate-50/70 px-5 py-4 border-b border-slate-100">
+              <h3 class="text-slate-900 font-extrabold">آیا هاست و دامنه هم توسط شما تهیه میشه؟</h3>
+            </div>
+            <div class="px-5 py-5 text-slate-700 leading-8 text-sm sm:text-base border-b border-slate-100">
+              بله. هم می‌تونید خودتون تهیه کنید، هم می‌تونید این کار رو به ما بسپارید تا بهترین کیفیت و مناسب‌ترین قیمت براتون تهیه کنیم.
+            </div>
+
+            <div class="bg-slate-50/70 px-5 py-4 border-b border-slate-100">
+              <h3 class="text-slate-900 font-extrabold">آیا پرداخت آنلاین روی سایت امکان‌پذیره؟</h3>
+            </div>
+            <div class="px-5 py-5 text-slate-700 leading-8 text-sm sm:text-base border-b border-slate-100">
+              بله. در طراحی فروشگاهی یا خدماتی، درگاه پرداخت آنلاین بانکی یا درگاه‌های واسط رو برای شما فعال می‌کنیم.
+            </div>
+
+            <div class="bg-slate-50/70 px-5 py-4 border-b border-slate-100">
+              <h3 class="text-slate-900 font-extrabold">آیا سایت روی گوگل دیده میشه؟</h3>
+            </div>
+            <div class="px-5 py-5 text-slate-700 leading-8 text-sm sm:text-base">
+              ما سایت‌ها رو از پایه سئو فرندلی طراحی می‌کنیم (ساختار کد، سرعت، بهینه‌سازی اولیه گوگل).
+              برای رتبه‌های بالاتر هم می‌تونید خدمات سئو تخصصی رو جداگانه سفارش بدید.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Cards -->
+<section id="contact" class="py-14 sm:py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-8 sm:mb-10">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-slate-950">
+        راه‌های ارتباطی
+      </h2>
+      <p class="mt-3 text-slate-700 text-sm sm:text-base">
+        سریع‌ترین راه برای شروع همکاری رو انتخاب کنید
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <!-- Telegram -->
+      <a
+        href="https://t.me/yourusername"
+        target="_blank"
+        rel="noopener"
+        class="group overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm hover:shadow-md transition"
+      >
+        <div class="bg-gray-950 px-6 py-8 text-center">
+          <p class="text-white font-extrabold text-lg">
+            ارتباط از طریق "تلگرام"
+          </p>
+        </div>
+        <div class="px-6 py-6 text-center">
+          <p class="text-slate-600 font-extrabold text-base sm:text-lg">
+            @yourusername
+          </p>
+          <p class="mt-2 text-xs text-slate-500 opacity-0 group-hover:opacity-100 transition">
+            کلیک کنید تا چت باز شود
+          </p>
+        </div>
+      </a>
+
+      <!-- WhatsApp -->
+      <a
+        href="https://wa.me/989121234567"
+        target="_blank"
+        rel="noopener"
+        class="group overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm hover:shadow-md transition"
+      >
+        <div class="bg-gray-950 px-6 py-8 text-center">
+          <p class="text-white font-extrabold text-lg">
+            ارتباط از طریق "واتس اپ"
+          </p>
+        </div>
+        <div class="px-6 py-6 text-center">
+          <p class="text-slate-600 font-extrabold text-base sm:text-lg ltr">
+            +98 912 123 4567
+          </p>
+          <p class="mt-2 text-xs text-slate-500 opacity-0 group-hover:opacity-100 transition">
+            کلیک کنید تا واتساپ باز شود
+          </p>
+        </div>
+      </a>
+
+      <!-- Phone -->
+      <a
+        href="tel:+982191006400"
+        class="group overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm hover:shadow-md transition"
+      >
+        <div class="bg-gray-950 px-6 py-8 text-center">
+          <p class="text-white font-extrabold text-lg">
+            ارتباط از طریق "تماس تلفنی"
+          </p>
+        </div>
+        <div class="px-6 py-6 text-center">
+          <p class="text-slate-600 font-extrabold text-base sm:text-lg ltr">
+            021 9100 6400
+          </p>
+          <p class="mt-2 text-xs text-slate-500 opacity-0 group-hover:opacity-100 transition">
+            برای تماس کلیک کنید
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-slate-100">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <!-- Top -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="public/Logo_587x371.png" alt="Logo" class="h-10 w-auto" />
+          <span class="text-lg font-extrabold">MohyTech</span>
+        </div>
+        <p class="mt-4 text-sm leading-7 text-slate-200 max-w-sm">
+          طراحی و توسعه وبسایت‌های سریع، مدرن و بهینه برای رشد واقعی کسب‌وکارها.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h3 class="font-extrabold mb-4 text-white">دسترسی سریع</h3>
+        <ul class="space-y-3 text-sm">
+          <li>
+            <a href="#services" class="hover:text-white transition">سرویس‌ها</a>
+          </li>
+          <li>
+            <a href="#portfolio" class="hover:text-white transition">نمونه‌کارها</a>
+          </li>
+          <li>
+            <a href="#faq" class="hover:text-white transition">سوالات متداول</a>
+          </li>
+          <li>
+            <a href="#contact" class="hover:text-white transition">تماس با من</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="font-extrabold mb-4 text-white">ارتباط با من</h3>
+        <ul class="space-y-3 text-sm text-slate-200">
+          <li class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-slate-600"></span>
+            مشاوره و شروع همکاری
+          </li>
+          <li>
+            ایمیل:
+            <a href="mailto:info@example.com" class="hover:text-white transition">
+              info@example.com
+            </a>
+          </li>
+          <li>
+            تلگرام:
+            <a href="#" class="hover:text-white transition">
+              @yourusername
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Divider -->
+    <div class="my-10 h-px bg-slate-700/50"></div>
+
+    <!-- Bottom -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300">
+      <p>© 2024 — All rights reserved.</p>
+
+      <div class="flex items-center gap-4">
+        <a href="#" class="hover:text-white transition">Instagram</a>
+        <a href="#" class="hover:text-white transition">LinkedIn</a>
+        <a href="#" class="hover:text-white transition">GitHub</a>
+      </div>
+    </div>
+  </div>
+</footer>
+  </body>
+</html>
